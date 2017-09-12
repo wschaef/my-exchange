@@ -9,6 +9,8 @@ import { CardComponent } from './card/card.component';
 import { BoardComponent } from './board/board.component';
 import { GameService } from './game.service';
 import { ShareComponent } from './share/share.component';
+import { CardsComponent } from './cards/cards.component';
+import { TransactionComponent } from './transaction/transaction.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ShareComponent } from './share/share.component';
     UserComponent,
     CardComponent,
     BoardComponent,
-    ShareComponent
+    ShareComponent,
+    CardsComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule

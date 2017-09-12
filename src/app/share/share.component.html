@@ -1,2 +1,2 @@
-<i class="fa fa-{{share.icon}}" aria-hidden="true"></i>
-{{share.name}}
+<i class="fa fa-{{share ? share.icon : 'question-circle-o'}}" aria-hidden="true"></i>
+{{share ? share.name : "any"}}
