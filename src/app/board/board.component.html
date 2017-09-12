@@ -1,0 +1,26 @@
+<div class="table-responsive table-bordered table-sm">
+  <table class="table">
+    <thead>
+      <tr class="thead-default">
+        <th></th>
+        <th *ngFor="let price of exchange.prices">
+          <share [share]=price.share></share>
+          <br />
+          <span class="badge badge-info">
+            {{price.value}}
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let depot of exchange.depots">
+        <th>
+          <player [player]="depot.player"></player>
+        </th>
+        <td *ngFor="let price of exchange.prices">
+          {{exchange.getHolding(depot.player, price.share) || 0}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
