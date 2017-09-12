@@ -74,26 +74,26 @@ export class GameService {
       })
 
       //add 100er cards
-      let trs = new Array<Transaction>();
-      for(let i=1; i<game.shares.length; i++ ){
-        trs.push(new Transaction(null, Operation.subs, 10));
-        trs.push(new Transaction(null, Operation.subs, 20));
-        trs.push(new Transaction(null, Operation.subs, 30));
-      }
-      trs.push(new Transaction(share, Operation.add, 100));
-      cards.push(new Card(trs));
+      cards.push(new Card(
+        [
+          new Transaction(share, Operation.add, 100),
+          new Transaction(null, Operation.subs, 10),
+          new Transaction(null, Operation.subs, 20),
+          new Transaction(null, Operation.subs, 30)
+        ]
+      ));
       
       //add mult cards
       cards.push(new Card(
         [
           new Transaction(share, Operation.mult, 2),
-          new Transaction(null, Operation.div, 2)
+          new Transaction(null, Operation.mult, 0.5)
         ]
       ));
       cards.push(new Card(
         [
           new Transaction(null, Operation.mult, 2),
-          new Transaction(share, Operation.div, 2)
+          new Transaction(share, Operation.mult, 0.5)
         ]
       ));
     })

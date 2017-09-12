@@ -1,3 +1,11 @@
 li.borderless{
     border: none;
 }
+div.card{
+    margin:3px;
+    width:15rem;
+}
+
+div.card-body{
+    padding: 0.3rem;
+}
