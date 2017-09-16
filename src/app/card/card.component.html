@@ -1,5 +1,10 @@
 <div class="card d-inline-block">
-  <div class="card-header text-right">card #{{card.id}} </div>
+  <div class="card-header text-left">
+    <button type="button" class="btn btn-primary" (click)="execute()">use</button>
+    <span style="float:right">
+      #{{card.id}} 
+    </span> 
+    </div>
   <div class="card-body">
       <ul class="list-group list-group-flush" >
         <li class="list-group-item borderless" *ngFor="let transaction of card.transactions">

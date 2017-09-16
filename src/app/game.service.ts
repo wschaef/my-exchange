@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Game } from './shared/Game';
 import { Player } from './shared/Player';
-import { Exchange } from './shared/Exchange';
+import { Exchange, Price } from './shared/Exchange';
 import { Share } from './shared/Share';
 import { Card } from './shared/Card';
 import { Transaction, Operation } from './shared/Transaction';
@@ -10,10 +10,13 @@ import { Depot } from './shared/Depot';
 @Injectable()
 export class GameService {
 
+  private game: Game;
+
   constructor() { }
 
   getGame(): Game {
     let game: Game = new Game();
+    this.game = game;
     this.init(game);
     return game;
   }
@@ -112,6 +115,41 @@ export class GameService {
       exchange.depots.push(new Depot(player,0,[]));
     });
     game.exchange = exchange;
+  }
+
+  public executeCard(card: Card){
+    card.transactions.forEach(transaction=>{
+      if(transaction.share !== null){
+        this.executeTransaction(transaction);
+      }
+    });
+  }
+
+  private executeTransaction(transaction: Transaction){
+    let price = this.game.exchange.prices.find(p => 
+      p.share.name == transaction.share.name
+    );
+    let amount;
+    switch (transaction.op) {
+      case Operation.add:
+      amount = price.value + transaction.amount;
+      break;
+      case Operation.subs:
+      amount = price.value - transaction.amount;
+      break;
+      case Operation.mult:
+      amount = price.value * transaction.amount;
+      break;
+      
+      default:
+      amount = price.value;
+      break;
+    }
+    this.updatePrice(price, amount);
+  }
+
+  private updatePrice(price: Price, amount: number){
+    price.value = amount
   }
   
 }

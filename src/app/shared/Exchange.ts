@@ -26,7 +26,7 @@ export class Exchange{
 
 }
 
-interface Price{
+export interface Price{
     share: Share;
     value: number;
 }
