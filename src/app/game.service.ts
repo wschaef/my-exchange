@@ -66,8 +66,8 @@ export class GameService {
         );
         cards.push(new Card(
             [ 
-              new Transaction(null, Operation.add,amount),
-              new Transaction(share, Operation.subs,90-amount)
+              new Transaction(share, Operation.subs,90-amount),
+              new Transaction(null, Operation.add,amount)
             ]
           )
         );
@@ -97,6 +97,9 @@ export class GameService {
         ]
       ));
     })
+    cards.forEach((card, i) => {
+      card.id = i;
+    });
     game.cards = cards;
   }
 

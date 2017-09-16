@@ -1,5 +1,17 @@
 <div class="text-center">
+  <a name="previous" href="#" role="button" class="btn btn-link text-secondary">
+    <i class="fa fa-chevron-left fa-3x" aria-hidden="true" (click)="previous()"></i>
+  </a>
+  <span class="text-left">
+    <card [card]="currentCard"></card>
+  </span>
+  <a name="next" href="#" role="button" class="btn btn-link text-secondary">
+    <i class="fa fa-chevron-right fa-3x" aria-hidden="true" (click)="next()"></i>
+  </a>
+</div>
+
+<!-- <div class="text-center">
   <span class="text-left" *ngFor="let card of cards">
     <card [card]="card"></card>
   </span>
-</div>
+</div> -->
