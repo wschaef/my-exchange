@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Transaction, Operation } from '../shared/Transaction';
+import { Share } from '../shared/Share';
 
 @Component({
   selector: 'transaction',
@@ -9,6 +10,7 @@ import { Transaction, Operation } from '../shared/Transaction';
 export class TransactionComponent implements OnInit {
 
   @Input() transaction: Transaction;
+  @Input() selectableShares: Array<Share>
   public icons = { 
     "add":"plus",
     "subs":"minus",

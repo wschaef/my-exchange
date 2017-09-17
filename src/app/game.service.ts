@@ -15,10 +15,11 @@ export class GameService {
   constructor() { }
 
   getGame(): Game {
-    let game: Game = new Game();
-    this.game = game;
-    this.init(game);
-    return game;
+    if(!this.game){
+      this.game = new Game();
+      this.init(this.game);
+    }
+    return this.game;
   }
 
   public init(game:Game): Game {

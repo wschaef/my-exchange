@@ -8,7 +8,10 @@
   <div class="card-body">
       <ul class="list-group list-group-flush" >
         <li class="list-group-item borderless" *ngFor="let transaction of card.transactions">
-          <transaction [transaction]="transaction"></transaction>
+          <transaction 
+            [transaction]="transaction"
+            [selectableShares]="listSelectableShares()"
+          ></transaction>
         </li>
       </ul>
   </div>
