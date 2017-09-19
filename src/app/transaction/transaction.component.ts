@@ -11,6 +11,7 @@ export class TransactionComponent implements OnInit {
 
   @Input() transaction: Transaction;
   @Input() selectableShares: Array<Share>
+  share: Share;
   public icons = { 
     "add":"plus",
     "subs":"minus",
@@ -37,6 +38,10 @@ export class TransactionComponent implements OnInit {
         break;
     }
     return iconName
+  }
+
+  onSelectShare(){
+    this.transaction.share = this.share;
   }
 
 }

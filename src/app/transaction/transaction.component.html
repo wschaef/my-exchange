@@ -9,8 +9,13 @@
 </ng-template>
 <ng-template #showSelect>
     <span class="form-group">
-      <select class="form-control form-control-sm d-inline-block" name="" id="">
-        <option *ngFor="let s of selectableShares">
+      <select 
+        class="form-control form-control-sm d-inline-block" 
+        [(ngModel)]="share"
+        (ngModelChange)="onSelectShare()"
+        name="" id="">
+        <option *ngFor="let s of selectableShares" 
+          [ngValue]="s">
             {{s.name}}
         </option>
       </select>
