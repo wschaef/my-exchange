@@ -8,13 +8,11 @@
     <share [share]="transaction.share"></share>
 </ng-template>
 <ng-template #showSelect>
-    <div class="form-group">
-      <label for=""></label>
-      <select class="form-control" name="" id="">
-        {{selectableShares}}
+    <span class="form-group">
+      <select class="form-control form-control-sm d-inline-block" name="" id="">
         <option *ngFor="let s of selectableShares">
             {{s.name}}
         </option>
       </select>
-    </div>
+    </span>
 </ng-template>
