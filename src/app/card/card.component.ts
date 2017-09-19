@@ -24,12 +24,10 @@ export class CardComponent implements OnInit {
     let selectedShares = this.card.transactions.map(tr => {
       return tr.share;
     });
-    console.log(selectedShares);
     let shares = this.gameService.getGame().shares;
     shares = shares.filter(share => 
       !(selectedShares.includes(share))
     );
-    console.log(shares);
     return shares;
   }
 }
