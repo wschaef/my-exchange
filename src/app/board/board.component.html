@@ -16,6 +16,9 @@
       <tr *ngFor="let depot of exchange.depots">
         <th>
           <player [player]="depot.player"></player>
+          <span class="badge badge-primary float-right">
+            {{depot.credit}}
+          </span>
         </th>
         <td *ngFor="let price of exchange.prices">
           {{exchange.getHolding(depot.player, price.share) || 0}}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Exchange } from '../shared/Exchange';
 import { GameService } from '../game.service';
 
@@ -9,13 +9,12 @@ import { GameService } from '../game.service';
 })
 export class BoardComponent implements OnInit {
 
-  exchange: Exchange;
+  @Input() exchange: Exchange;
   constructor(
     private gameService: GameService
   ) { }
 
   ngOnInit() {
-    this.exchange = this.gameService.getGame().exchange;
   }
 
 }
