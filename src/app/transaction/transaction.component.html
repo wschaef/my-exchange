@@ -3,7 +3,7 @@
   {{transaction.amount}}
 </span>
 &nbsp;
-<div *ngIf="transaction.share; then showValue ; else showSelect"></div>
+<div *ngIf="transaction.fixed; then showValue ; else showSelect"></div>
 <ng-template #showValue>
     <share [share]="transaction.share"></share>
 </ng-template>
@@ -13,7 +13,7 @@
         class="form-control form-control-sm d-inline-block" 
         [(ngModel)]="share"
         (ngModelChange)="onSelectShare()"
-        name="" id="">
+        <option [ngValue]="share">{{transaction.share ? transaction.share.name : ""}}</option>
         <option *ngFor="let s of selectableShares" 
           [ngValue]="s">
             {{s.name}}
