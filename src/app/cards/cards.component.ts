@@ -24,7 +24,7 @@ export class CardsComponent implements OnInit {
   next(){
     let n = this.cards.length;
     let i = this.cards.indexOf(this.currentCard);
-    i >= n ? i = 0 : i++;
+    i = (i+1)%n;
     this.currentCard = this.cards[i];
   }
   previous(){
