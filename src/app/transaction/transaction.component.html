@@ -13,6 +13,7 @@
         class="form-control form-control-sm d-inline-block" 
         [(ngModel)]="share"
         (ngModelChange)="onSelectShare()"
+        name="share" id="">
         <option [ngValue]="share">{{transaction.share ? transaction.share.name : ""}}</option>
         <option *ngFor="let s of selectableShares" 
           [ngValue]="s">
