@@ -1,5 +1,6 @@
 import { Player } from './Player';
 import { Share } from './Share';
+import { Holding } from './Holding';
 export class Depot{
     constructor(
         public player: Player,
@@ -7,9 +8,4 @@ export class Depot{
         public stock: Holding[]
     ){}
 
-}
-
-export interface Holding{
-    share: Share;
-    amount: number;
 }

@@ -6,7 +6,7 @@
         <th *ngFor="let price of exchange.prices">
           <share [share]=price.share></share>
           <br />
-          <span class="badge badge-primary">
+          <span class="badge badge-default">
             {{price.value}}
           </span>
         </th>
@@ -16,12 +16,13 @@
       <tr *ngFor="let depot of exchange.depots">
         <th>
           <player [player]="depot.player"></player>
-          <span class="badge badge-primary float-right">
+          <span class="badge badge-default float-right">
             {{depot.credit}}
           </span>
         </th>
         <td *ngFor="let price of exchange.prices">
-          {{exchange.getHolding(depot.player, price.share) || 0}}
+          {{exchange.getHolding(depot.player, price.share).amount || 0}}
+          <trade [player]="depot.player" [share]="price.share"></trade>
         </td>
       </tr>
     </tbody>

@@ -1,0 +1,10 @@
+<div class="input-group">
+  <input #amount type="number" 
+        class="form-control form-control-sm"
+        (keyup.enter)="trade(amount.value)">
+  <span class="input-group-btn">
+    <button class="btn btn-outline-secondary btn-sm" type="button" (click)="trade(amount.value)">
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    </button>
+  </span>
+</div>

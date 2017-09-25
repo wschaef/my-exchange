@@ -110,10 +110,10 @@ export class GameService {
   private initExchange(game: Game) {
     let exchange = new Exchange();
     game.shares.forEach(share =>{
-      exchange.prices.push({share:share, value:exchange.defaultValue});
+      exchange.prices.push({share:share, value:exchange.defaultPrice});
     });
     game.players.forEach(player =>{
-      exchange.depots.push(new Depot(player,0,[]));
+      exchange.depots.push(new Depot(player,exchange.defaultCredit,[]));
     });
     game.exchange = exchange;
   }
@@ -151,6 +151,16 @@ export class GameService {
 
   private updatePrice(price: Price, amount: number){
     price.value = amount
+  }
+
+  trade(player: Player, share: Share, amount: number){
+    let exchange = this.game.exchange;
+    let price = exchange.getPrice(share);
+    let holding = exchange.getHolding(player,share);
+    let depot = exchange.getDepot(player);
+    let diff = amount - holding.amount;
+    depot.credit = depot.credit - price.value * diff
+    holding.amount = amount;
   }
   
 }
